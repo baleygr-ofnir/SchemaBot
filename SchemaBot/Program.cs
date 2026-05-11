@@ -35,7 +35,7 @@ class Program
             if (!containsTrigger) return;
             
             string pinnedMessageLink =
-                $"https://discord.com/channels/{message.GuildId}/{_targetChannelId}/{_pinnedMessageId}";
+                $"https://discord.com/channels/{message.GuildId}/{_pinnedMessageId}";
             string userMention = $"<@{message.Author.Id}>";
             string responsePayload = $"{userMention}, var god läs schemat: {pinnedMessageLink}";
 

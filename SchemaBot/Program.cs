@@ -10,6 +10,8 @@ class Program
 
     private static ulong _targetChannelId = ulong.Parse(Environment.GetEnvironmentVariable("TARGET_CHANNEL") 
                                                 ?? throw new InvalidOperationException("TARGET_CHANNEL environment variable not set"));
+    private static ulong _pinnedChannelId = ulong.Parse(Environment.GetEnvironmentVariable("PINNED_CHANNEL")
+                                                      ?? throw new InvalidOperationException("PINNED_CHANNEL environment variable not set"));
     private static ulong _pinnedMessageId = ulong.Parse(Environment.GetEnvironmentVariable("PINNED_MESSAGE")
                                                 ?? throw new InvalidOperationException("PINNED_MESSAGE environment variable not set"));
     private static string[] _triggers = (Environment.GetEnvironmentVariable("STRING_TRIGGERS")
@@ -35,7 +37,7 @@ class Program
             if (!containsTrigger) return;
             
             string pinnedMessageLink =
-                $"https://discord.com/channels/{message.GuildId}/{_pinnedMessageId}";
+                $"https://discord.com/channels/{message.GuildId}/{_pinnedChannelId}/{_pinnedMessageId}";
             string userMention = $"<@{message.Author.Id}>";
             string responsePayload = $"{userMention}, var god läs schemat: {pinnedMessageLink}";
 

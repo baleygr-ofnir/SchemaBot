@@ -3,8 +3,12 @@ name: SchemaBot Komodo CI/CD
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'SchemaBot/**'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'SchemaBot/**'
   
 jobs:
   build:

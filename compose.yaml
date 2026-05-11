@@ -1,0 +1,10 @@
+﻿services:
+  schemabot:
+    image: schemabot
+    build:
+      context: .
+      dockerfile: SchemaBot/Dockerfile
+    container_name: schemabot
+    restart: unless-stopped
+    env_file:
+      - .env
